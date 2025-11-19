@@ -1,36 +1,30 @@
 class MessagesController < ApplicationController
+
+  def create
+    # Gets the user message from params and assigns it to user_message.
     @chat = Chat.find(params[:chat_id])
+    # Use following line instead of above line when our devise login will work
+    # @chat = current_user.chats.find(params[:chat_id])
+    message = params[:ai_messages]
+    user_message = @chat.messages.new(content: message[:content], role: 'user')
 
-    # USER MESSAGE
-    message = params[:ai_messages][:content]
-    user_message = @chat.messages.create(content: message, role: 'user')
+    if user_message.save
+      # Generates AI response with chat.ask and assigns it to ai_message.
+      @ruby_llm_chat = RubyLLM.chat
 
-    # AI MESSAGE
-    chat = RubyLLM.chat
-    response = chat.ask(user_message.content)
-    ai_message = @chat.messages.create(content: response.content, role: 'ai')
+      # Calling Build_conversation_history method
+      build_conversation_history
+      response = @ruby_llm_chat.ask(user_message.content)
+      airesp = Message.create(content: response.content, role: 'assistant', chat: @chat)
+    end
 
-    raise
     redirect_to @chat
   end
 
-  # # def
-  #   @chat = Chat.find(params[:chat_id])
+  def build_conversation_history
 
-  #   # Get user input
-  #   user_content = params[:ai_messages][:content]
-
-  #   # Save the user message
-  #   user_message = @chat.messages.create!(content: user_content, role: 'user')
-
-  #   # Ask RubyLLM
-  #   llm = RubyLLM.chat
-  #   llm_response = llm.ask(user_content)
-
-  #   # Save the AI response as a message
-  #   @chat.messages.create!(content: llm_response.content, role: 'ai')
-
-  #   # Redirect back to chat show page
-  #   redirect_to @chat
-  # end
+    @chat.messages.each do |msg|
+      @ruby_llm_chat.add_message(msg)
+    end
+  end
 end
