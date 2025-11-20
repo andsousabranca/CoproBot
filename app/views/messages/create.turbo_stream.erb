@@ -6,6 +6,6 @@
   <%= render "messages/messages", messages: @chat.messages.order(:created_at).last(2) %>
 <% end %>
 
-<%= turbo_stream.update :new_message do %>
+<%= turbo_stream.update :new_message_form do %>
   <%= render "messages/form", chat: @chat, message: Message.new %>
 <% end %>
