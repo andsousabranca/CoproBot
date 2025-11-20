@@ -10,4 +10,18 @@ class ChatsController < ApplicationController
     @chats = @section.chats.order(created_at: :desc)
   end
   
+  def create
+    @section = Section.find_by(params[:id])
+
+    # initialize @chat variable with last chat
+    @chat = Chat.last
+    
+    # check if that chat alredy has some messages, if yes, then it is a used chat, hence we have to create a new one
+    if @chat.messages.any?
+      @chat = Chat.create!(user: current_user, section: @section, title: "New chat")
+    end
+
+    raise
+  end
+
 end
