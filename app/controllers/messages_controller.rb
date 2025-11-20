@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     
     # Use following line instead of above line when our devise login will work
     # @chat = current_user.chats.find(params[:chat_id])
-    message = params[:ai_messages]
+    message = params[:message]
     user_message = Message.new(content: message[:content], role: 'user', chat: @chat)
 
     if user_message.save
@@ -34,11 +34,24 @@ class MessagesController < ApplicationController
       response = @ruby_llm_chat.ask(user_message.content)
       Message.create(content: response.content, role: 'assistant', chat: @chat)
 
-      redirect_to chat_path(@chat)
+      # adapt title of the chat
+      @chat.generate_title_from_first_message
+
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to chat_path(@chat) }
+      end
     else
-      render "chats/show", status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(
+          :new_message, partial: "messages/form", locals: { chat: @chat, message: user_message }
+        ) }
+        format.html { render "chats/show", status: :unprocessable_entity }
+      end
     end
   end
+
+  private
 
   def build_conversation_context
     instructions = [SYSTEM_PROMPT, @section.content, @section.system_prompt].compact.join("\n\n")

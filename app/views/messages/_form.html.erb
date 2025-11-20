@@ -1,0 +1,7 @@
+<%= form_with model: [chat, message], html: { id: "new_message" }  do |myform| %>
+  <div>
+    <%= myform.label :content, "Ask your question:" %>
+    <%= myform.text_field :content %>
+  </div>
+  <%= myform.submit "Ask question", class: "btn btn-primary" %>
+<% end %>

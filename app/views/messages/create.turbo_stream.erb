@@ -1,0 +1,11 @@
+<% if @chat.title_previously_changed? %>
+  <%= turbo_stream.update "chat-title", @chat.title %>  
+<% end %>
+
+<%= turbo_stream.append :messages do %>
+  <%= render "messages/messages", messages: @chat.messages.order(:created_at).last(2) %>
+<% end %>
+
+<%= turbo_stream.update :new_message do %>
+  <%= render "messages/form", chat: @chat, message: Message.new %>
+<% end %>
