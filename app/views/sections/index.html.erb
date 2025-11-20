@@ -8,7 +8,7 @@
     <%@sections.each do |section| %>
 
     <%# The link_to needs to be linked the the chats/id show page. probably have to mod the controller%>
-      <%= link_to("#") do%>
+      <%= link_to(section_chats_path(section.id), data: {turbo_method: :post}) do %>
         <div class="group block mb-20">
             <img src="https://images.unsplash.com/photo-1592921870789-04563d55041c?auto=format&amp;fit=crop&amp;q=80&amp;w=1160" alt="" class="h-[250px] w-full object-cover sm:h-[350px]">
           <div class="mt-3 flex justify-between text-sm">
@@ -23,3 +23,4 @@
     <%end%>
   </div>
 </div>
+/
