@@ -24,7 +24,7 @@
               <div class="card-body">
                 <h2 class="card-title"><%= chat.title %></h2>
                 <div class="card-actions justify-end">
-                  <button class="btn btn-primary">Talk to this chat</button>
+                  <%= link_to "Talk to this chat", chat_path(chat), class: "btn btn-primary" %>
                 </div>
               </div>
             </div>
@@ -39,15 +39,15 @@
        <div id="messages">
         <% @chat.messages.each do |message| %>
           <% if message.role == "assistant" %>
-            <div class="flex justify-end mb-2">
+            <div class="flex justify-start mb-2">
               <div class="bg-white text-grey-800 px-4 py-2 rounded-2xl shadow-sm max-w-[70%]">
-                <%= message.content %>
+                <%= raw(render_markdown(message.content)) %>
               </div>
             </div>
           <% elsif message.role == "user" %>
-            <div class="flex justify-start mb-5">
+            <div class="flex justify-end mb-5">
               <div class="bg-blue-100 text-grey-900 px-4 py-2 rounded-2xl shadow-sm max-w-[70%]">
-                <%= message.content %>
+                <%= raw(render_markdown(message.content)) %>
               </div>
             </div>
           <% end %>

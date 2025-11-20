@@ -99,13 +99,7 @@ Section.create(:content => "
   Fines up to €20 million or 4% of global turnover, plus corrective measures.
   ",
   :system_prompt => "
-    You are an experienced Building Manager, specialised in Belgium Co-ownerships.
-
-    I am an appartement Owner, looking to learn about the Co-Ownership rules and regulations.
-
     Guide me into the RGPD regulations concerning data usage for co-ownerships.
-
-    Provide step-by-step instructions in bullet points, using Markdown.
   ",
   :name => "GDPR"
 )
@@ -115,13 +109,7 @@ Section.create(:content => "
   HAS TO BE COMPLETED
   ",
   :system_prompt => "
-    You are an experienced Building Manager, specialised in Belgium Co-ownerships.
-
-    I am an appartement Owner, looking to learn about the Co-Ownership rules and regulations.
-
     Guide me into the financial side concerning accountancy for co-ownerships.
-
-    Provide step-by-step instructions in bullet points, using Markdown.
   ",
   :name => "Accounting & Financial Management"
 )
@@ -131,13 +119,7 @@ Section.create(:content => "
   HAS TO BE COMPLETED
   ",
   :system_prompt => "
-    You are an experienced Building Manager, specialised in Belgium Co-ownerships.
-
-    I am an appartement Owner, looking to learn about the Co-Ownership rules and regulations.
-
     Guide me into the financial side concerning accountancy for co-ownerships.
-
-    Provide step-by-step instructions in bullet points, using Markdown.
   ",
   :name => "Co-Ownership (Legal & Governance)"
 )
@@ -147,13 +129,7 @@ Section.create(:content => "
   HAS TO BE COMPLETED
   ",
   :system_prompt => "
-    You are an experienced Building Manager, specialised in Belgium Co-ownerships.
-
-    I am an appartement Owner, looking to learn about the Co-Ownership rules and regulations.
-
     Guide me into the financial side concerning accountancy for co-ownerships.
-
-    Provide step-by-step instructions in bullet points, using Markdown.
   ",
   :name => "Building Maintenance & Safety"
 )
