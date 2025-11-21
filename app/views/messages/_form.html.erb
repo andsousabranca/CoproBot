@@ -1,4 +1,4 @@
-<%= form_with model: [chat, message], 
+<%= form_with model: [chat, message],  data: { turbo: true, turbo_stream: true },
   html: { id: "new_message_form", class: "flex w-full items-center gap-2 p-3" }  do |myform| %>
   <%= myform.label :content, "Ask your question:", class: "sr-only" %>
   <%= myform.text_area :content, 
