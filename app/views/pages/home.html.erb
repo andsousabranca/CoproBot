@@ -1,7 +1,7 @@
 <section class="bg-white lg:grid lg:h-screen lg:place-content-center">
   <div class="mx-auto w-screen max-w-7xl px-4 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32">
     <div class="max-w-prose text-left">
-      <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
+      <h1 class="text-5xl font-bold text-gray-900 sm:text-5xl">
         All-in-one co-ownership chatbot with
         <strong class="text-indigo-600"> instant</strong>
          expert answers.
@@ -13,15 +13,143 @@
 
       <div class="mt-4 flex gap-4 sm:mt-6">
         <%= link_to("Get Started", sections_path, class:"inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700")%>
-        <%# <a class="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700" href="#"> %>
-          <%# Get Started
-        </a> %>
-
-        <%# <a class="inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900" href="#">
-          Learn More
-        </a> %>
       </div>
     </div>
     <%= image_tag "Screenshot 2025-11-21 121809.jpg", alt: "Product demo illustration" %>
   </div>
 </section>
+
+<hr class = "mx-15 my-15">
+
+<div id="cards-container" class="w-[1000px] container mx-auto">
+  <%# How it works title %>
+  <h2 class = "text-4xl font-bold text-gray-900 sm:text-4xl my-20">How it works</h2>
+
+  <%# Cards displaying the process %>
+  <div id="description-cards" class=" flex justify-between">
+
+    <%# Process Card One %>
+    <div class="card bg-base-100 w-66 shadow-sm  border border-gray-200">
+      <figure>
+        <%= image_tag "undraw_pending-approval_6cdu.svg", alt: "Explaination illustration about a question" %>
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">
+          <div class="badge badge-secondary text-lg">Step 1</div>
+        </h2>
+        <p class = "text-base font-bold">Ask your question (e.g. “Who pays for the elevator repairs?”)</p>
+        <%# <div class="card-actions justify-end">
+          <div class="badge badge-outline">Fashion</div>
+          <div class="badge badge-outline">Products</div>
+        </div> %>
+      </div>
+    </div>
+
+    <%# Process Card Two %>
+    <div class="card bg-base-100 w-66 shadow-sm  border border-gray-200">
+      <figure>
+        <%= image_tag "undraw_chat-with-ai_ir62.svg", alt: "Explaination illustration, chatting with Artificial Inteligence." %>
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">
+          <div class="badge badge-secondary text-lg">Step 2</div>
+        </h2>
+        <p class = "text-base font-bold">AI searches real Belgian law (Civil Code, Moniteur Belge, case law)</p>
+
+      </div>
+    </div>
+
+    <%# Process Card Three %>
+    <div class="card bg-base-100 w-66 shadow-sm  border border-gray-200">
+      <figure>
+        <%= image_tag "undraw_happy-announcement_23nf.svg", alt: "Explaination illustration about happy people." %>
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">
+          <div class="badge badge-secondary text-lg">Step 3</div>
+        </h2>
+        <p class = "text-base font-bold">Get a clear, cited answer in plain language</p>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <hr class = "mx-15 my-15">
+
+  <%# Why it is useful title %>
+  <h2 class = "text-4xl font-bold text-gray-900 sm:text-4xl my-15">Why it's Useful</h2>
+
+  <%# Show paragraph explaining why useful %>
+  <div id="description-text">
+
+    <%# Paragraph One %>
+    <div for="laws" class= "pb-8">
+      <span class="text-sm font-medium text-gray-700"> Laws are complicated — we translate them into human language.</span>
+      <p id="laws" class="mt-0.5 w-full resize-none rounded border-gray-300 shadow-sm sm:text-sm" rows="4">Belgian co-ownership laws are written for jurists, not everyday owners. Our chatbot reads the official legal text and reformulates it in clear, simple terms anyone can understand — without changing the meaning. It’s like having a lawyer who explains things over coffee.</p>
+    </div>
+
+
+    <%# Paragraph Two %>
+    <div for="legal-text" class= "pb-8">
+      <span class="text-sm font-medium text-gray-700"> Up-to-date with official Belgian legal texts.</span>
+      <p id="legal-text" class="mt-0.5 w-full resize-none rounded border-gray-300 shadow-sm sm:text-sm" rows="4">CoproBot pulls information directly from official databases like the Moniteur Belge and the Civil Code. Whenever new laws or amendments are published, they’re automatically integrated — so your answers stay current, reliable, and compliant.</p>
+    </div>
+
+    <%# Paragraph Three %>
+    <div for="ideal" class= "pb-8">
+      <span class="text-sm font-medium text-gray-700">Ideal for property owners, syndics, and lawyers-in-training.</span>
+      <p id="ideal" class="mt-0.5 w-full resize-none rounded border-gray-300 shadow-sm sm:text-sm" rows="4">Each group has different needs. Owners want clarity on their rights, syndics need practical compliance support, and law students want quick access to structured summaries. CoBot adapts its tone and level of detail to the user.</p>
+    </div>
+
+  </div>
+
+  <%# Button Try it for free now! %>
+  <div class="flex justify-center">
+    <%= link_to("Try it for Free", sections_path, class:"inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700")%>
+  </div>
+
+  <hr class = "mx-15 my-15">
+
+  <%# Testimonials title%>
+  <h2 class = "text-4xl font-bold text-gray-900 sm:text-4xl my-15">Testimonials</h2>
+
+<%# 3 cards for testimonials %>
+<div class="chat chat-start">
+  <div class="chat-image avatar">
+    <div class="w-10 rounded-full">
+      <img
+        alt="Tailwind CSS chat bubble component"
+        src="https://img.daisyui.com/images/profile/demo/kenobee@192.webp"
+      />
+    </div>
+  </div>
+
+  <div class="chat-header">
+  Victor
+  </div>
+
+  <div class="chat-bubble">Finally, a clear answer without spending hours on legal websites</div>
+  </div>
+<div class="chat chat-end">
+
+<div class="chat-image avatar">
+  <div class="w-10 rounded-full">
+    <img
+      alt="Tailwind CSS chat bubble component"
+      src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp"
+    />
+  </div>
+  </div>
+  <div class="chat-header">
+  Lauren
+  </div>
+  <div class="chat-bubble">Perfect for quick checks before an assembly — it’s like having a legal assistant on call</div>
+
+</div>
+
+</div>
+
+<%# Your AI Advisor is ready to help + button Try it for free now! %>
+<%# Footer %>
