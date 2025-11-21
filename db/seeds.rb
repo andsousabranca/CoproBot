@@ -102,7 +102,8 @@ Section.create(:content => "
     Guide me into the RGPD regulations concerning data usage for co-ownerships.
   ",
   :name => "GDPR",
-  :url => "undraw_gdpr_g020.svg"
+  :url => "undraw_gdpr_g020.svg",
+  :description => "Instant, reliable guidance on data protection, privacy rules, and compliance requirements."
 )
 
 Section.create(:content => "
@@ -113,7 +114,8 @@ Section.create(:content => "
     Guide me into the financial side concerning accountancy for co-ownerships.
   ",
   :name => "Accounting & Financial Management",
-  :url => "undraw_wallet_diag.svg"
+  :url => "undraw_wallet_diag.svg",
+  :description => "Clear, accurate support for budgeting, reporting, and all co-ownership financial matters."
 )
 
 Section.create(:content => "
@@ -124,7 +126,8 @@ Section.create(:content => "
     Guide me into the financial side concerning accountancy for co-ownerships.
   ",
   :name => "Co-Ownership (Legal & Governance)",
-  :url => "undraw_judge_hyqv.svg"
+  :url => "undraw_judge_hyqv.svg",
+  :description => "Expert answers on regulations, obligations, and legal procedures for co-ownership governance."
 )
 
 Section.create(:content => "
@@ -135,7 +138,8 @@ Section.create(:content => "
     Guide me into the financial side concerning accountancy for co-ownerships.
   ",
   :name => "Building Maintenance & Safety",
-  :url => "undraw_construction-workers_z99i.svg"
+  :url => "undraw_construction-workers_z99i.svg",
+  :description => "Practical, fast assistance on maintenance planning, safety standards, and technical building issues."
 )
 
 puts Section.count
