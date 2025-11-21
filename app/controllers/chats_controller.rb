@@ -31,7 +31,7 @@ class ChatsController < ApplicationController
     @message = Message.new
 
     # get all the current and historic chats of the section
-    @chats = @section.chats.order(created_at: :desc)
+    @chats = @section.chats.where(user: current_user).order(created_at: :desc)
   end
 
   private

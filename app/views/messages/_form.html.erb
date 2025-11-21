@@ -1,7 +1,9 @@
 <%= form_with model: [chat, message],  
   data: { turbo: true, turbo_stream: true },
-  html: { id: "new_message_form", 
-  class: "flex items-center gap-2 w-full" }  do |myform| %>
+  html: { 
+    id: "new_message_form", 
+    class: "flex items-center gap-2 w-full" 
+    }  do |myform| %>
   <%= myform.label :content, "Ask your question:", class: "sr-only" %>
   <%= myform.text_area :content, 
     rows: 2, 

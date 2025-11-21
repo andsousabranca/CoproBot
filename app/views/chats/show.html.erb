@@ -46,7 +46,9 @@
     </div>
 
     <%# visualizing the messages depending on their role %>
-    <div id="messages" class="flex-1 overflow-y-auto p-6 space-y-4">
+    <div id="messages" 
+      class="flex-1 overflow-y-auto p-6 space-y-4 scroll-smooth"
+      data-controller="scroll">
       <%= render "messages/messages", messages: @chat.messages %>   
     </div>
 
