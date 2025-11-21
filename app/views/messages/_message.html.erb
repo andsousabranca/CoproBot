@@ -1,0 +1,13 @@
+<% if message.role == "assistant" %>
+  <div class="chat chat-start" id="<%= dom_id(message) %>">
+    <div class="bg-white text-grey-800 px-4 py-2 rounded-2xl shadow-sm max-w-[70%]">
+      <%= message.content.present? ? raw(render_markdown(message.content)) : "..." %>
+    </div>
+  </div>
+<% elsif message.role == "user" %>
+  <div class="chat chat-end">
+    <div class="bg-blue-100 text-grey-900 px-4 py-2 rounded-2xl shadow-sm max-w-[70%]">
+      <%= raw(render_markdown(message.content)) %>
+    </div>
+  </div>
+<% end %>

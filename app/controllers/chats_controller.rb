@@ -16,10 +16,12 @@ class ChatsController < ApplicationController
 
     # checks if sections doesn't have chats, initialize @chat with a new one.
     else
-      @chat = Chat.new(title: @section.name, section_id: @section.id, user_id: current_user.id)
+      @chat = Chat.new(title: Chat::DEFAULT_TITLE, section_id: @section.id, user_id: current_user.id)
       if @chat.save
         redirect_to chat_path(@chat)
       end
+
+      # TODO: @Pierre, we should usually also add what happens if the chat isnt saved, which can also happen; also for above
     end
   end
 

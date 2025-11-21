@@ -59,6 +59,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  
+  gem "httplog"
+  gem "pry-byebug"
+  gem "pry-rails"
 end
 
 group :test do
@@ -69,6 +73,10 @@ end
 
 gem "devise"
 
+# for markdown
 gem "kramdown" 
 gem "rouge" 
 gem "kramdown-parser-gfm"
+
+# for web sockets
+gem "solid_cable"

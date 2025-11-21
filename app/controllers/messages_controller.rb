@@ -18,21 +18,17 @@ class MessagesController < ApplicationController
     # Use following line instead of above line when our devise login will work
     # @chat = current_user.chats.find(params[:chat_id])
     message = params[:message]
-    user_message = Message.new(content: message[:content], role: 'user', chat: @chat)
+    @user_message = Message.new(content: message[:content], role: 'user', chat: @chat)
+    
+    if @user_message.save
+      #Creates an empty assistant message reply
+      @assistant_message = @chat.messages.create(content: "", role: 'assistant')
 
-    if user_message.save
-      # Generates AI response with chat.ask and assigns it to ai_message.
-      @ruby_llm_chat = RubyLLM.chat
-
-      # Add context from section to message
-      build_conversation_context
-
-      # Calling Build_conversation_history method
-      build_conversation_history
+      send_question
 
       # Get responses of chat
-      response = @ruby_llm_chat.ask(user_message.content)
-      Message.create(content: response.content, role: 'assistant', chat: @chat)
+      @assistant_message.update(content: @response.content)
+      broadcast_replace(@assistant_message)
 
       # adapt title of the chat
       @chat.generate_title_from_first_message
@@ -60,7 +56,34 @@ class MessagesController < ApplicationController
 
   def build_conversation_history
     @chat.messages.each do |msg|
+      next if msg.content.blank?
+
       @ruby_llm_chat.add_message(msg)
     end
+  end
+
+  def send_question
+    # Generates AI response with chat.ask and assigns it to ai_message.
+    @ruby_llm_chat = RubyLLM.chat
+
+    # Add context from section to message
+    build_conversation_context
+
+    # Calling Build_conversation_history method
+    build_conversation_history
+
+    @response = @ruby_llm_chat.ask(@user_message.content) do |chunk|
+      next if chunk.content.blank?
+
+      @assistant_message.content += chunk.content
+      broadcast_replace(@assistant_message)
+    end
+  end
+
+  def broadcast_replace(message)
+    Turbo::StreamsChannel.broadcast_replace_to(@chat, 
+      target: helpers.dom_id(message),
+      partial: "messages/message",
+      locals: { message: message })
   end
 end
