@@ -115,41 +115,63 @@
   <%# Testimonials title%>
   <h2 class = "text-4xl font-bold text-gray-900 sm:text-4xl my-15">Testimonials</h2>
 
-<%# 3 cards for testimonials %>
-<div class="chat chat-start">
-  <div class="chat-image avatar">
-    <div class="w-10 rounded-full">
-      <img
-        alt="Tailwind CSS chat bubble component"
-        src="https://img.daisyui.com/images/profile/demo/kenobee@192.webp"
-      />
+  <%# 3 cards for testimonials %>
+  <div class="testimonials-chat mb-20">
+
+    <div class="chat chat-start">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <%= image_tag "VW.jpg", alt: "VW profile pic"%>
+        </div>
+      </div>
+
+      <div class="chat-header">
+      Victor
+      </div>
+
+      <div class="chat-bubble">Finally, a clear answer without spending hours on legal websites</div>
     </div>
-  </div>
 
-  <div class="chat-header">
-  Victor
-  </div>
+    <div class="chat chat-end">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <%= image_tag "JW.jpg", alt: "LW profile pic"%>
+        </div>
+        </div>
+        <div class="chat-header">
+        Lauren
+        </div>
+      <div class="chat-bubble">Perfect for quick checks before an assembly — it’s like having a legal assistant on call</div>
+    </div>
 
-  <div class="chat-bubble">Finally, a clear answer without spending hours on legal websites</div>
-  </div>
-<div class="chat chat-end">
+    <div class="chat chat-start">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <%= image_tag "TT.jpg", alt: "TT profile pic"%>
+        </div>
+      </div>
 
-<div class="chat-image avatar">
-  <div class="w-10 rounded-full">
-    <img
-      alt="Tailwind CSS chat bubble component"
-      src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp"
-    />
+      <div class="chat-header">
+      Trevor
+      </div>
+
+      <div class="chat-bubble">Sawat-dee kap! I use it during my property law studies to verify articles instantly. Super helpful</div>
+    </div>
+
+    <div class="chat chat-end">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <%= image_tag "DR.jpg", alt: "DR profile pic"%>
+        </div>
+        </div>
+        <div class="chat-header">
+        Dani
+        </div>
+      <div class="chat-bubble">Looking for a co-founder?</div>
+    </div>
+
   </div>
-  </div>
-  <div class="chat-header">
-  Lauren
-  </div>
-  <div class="chat-bubble">Perfect for quick checks before an assembly — it’s like having a legal assistant on call</div>
 
 </div>
 
-</div>
-
-<%# Your AI Advisor is ready to help + button Try it for free now! %>
 <%# Footer %>
