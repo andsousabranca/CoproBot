@@ -80,3 +80,4 @@ gem "kramdown-parser-gfm"
 
 # for web sockets
 gem "solid_cable"
+gem "dockerfile-rails", ">= 1.7", group: :development
