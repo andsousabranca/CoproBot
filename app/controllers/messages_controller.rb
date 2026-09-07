@@ -64,7 +64,10 @@ class MessagesController < ApplicationController
 
   def send_question
     # Generates AI response with chat.ask and assigns it to ai_message.
-    @ruby_llm_chat = RubyLLM.chat
+    @ruby_llm_chat = RubyLLM.chat(
+      model: ENV.fetch("RUBY_LLM_MODEL", "gemini-3.6-flash"),
+      provider: :gemini, assume_model_exists: true
+    )
 
     # Add context from section to message
     build_conversation_context

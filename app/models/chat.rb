@@ -18,7 +18,10 @@ class Chat < ApplicationRecord
     first_user_message = messages.where(role: "user").order(:created_at).first
     return if first_user_message.nil?
 
-    response = RubyLLM.chat.with_instructions(TITLE_PROMPT).ask(first_user_message.content)
+    response = RubyLLM.chat(
+      model: ENV.fetch("RUBY_LLM_MODEL", "gemini-3.6-flash"),
+      provider: :gemini, assume_model_exists: true
+    ).with_instructions(TITLE_PROMPT).ask(first_user_message.content)
     update(title: response.content)
   end
 end
