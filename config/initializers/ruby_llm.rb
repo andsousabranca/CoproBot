@@ -1,4 +1,4 @@
 RubyLLM.configure do |config|
-  # Google Gemini (GitHub Models was retired). Key from aistudio.google.com.
-  config.gemini_api_key = ENV["GEMINI_API_KEY"]
+  config.openai_api_key = ENV["GITHUB_TOKEN"]
+  config.openai_api_base = "https://models.inference.ai.azure.com"
 end
